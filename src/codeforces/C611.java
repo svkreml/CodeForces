@@ -14,7 +14,7 @@ public class C611 {
     static Scanner scan = new Scanner(System.in);
     // static String buf = null;
     // static Scanner scanString = new Scanner(buf);
-    static Map<Long, Integer> cashe = new HashMap<>();
+    static Map<Long, Integer> hash = new HashMap<>();
     static BufferedReader in = new BufferedReader((new InputStreamReader(System.in)));
     static OutputStream out = new BufferedOutputStream(System.out);
     static int h;
@@ -67,8 +67,8 @@ public class C611 {
         int minI = zones[n][2];
         int maxI = zones[n][4];
         Long salt = Long.valueOf((minJ*1000000000)+(maxJ*1000000)+(minI*1000)+maxI);
-        if (cashe.containsKey(salt))
-            return cashe.get(salt);
+        if (hash.containsKey(salt))
+            return hash.get(salt);
         else
         {
             for (int j = minJ; j <= maxJ; j++)//ver
@@ -84,7 +84,7 @@ public class C611 {
                         //     System.out.println("way = ["+j+"]"+"["+i+"]-["+(j+1)+"]"+"["+(i)+"]");
                     }
                 }
-            cashe.put(salt, ways);
+            hash.put(salt, ways);
             return ways;
         }
     }
